@@ -1,6 +1,6 @@
-mod config;
-mod graph;
+mod sidecar;
+mod sim_world;
 
 fn main() {
-    println!("Hello, spectral!");
+    println!("Welcome to spectral");
 }
