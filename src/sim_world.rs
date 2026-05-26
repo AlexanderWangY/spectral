@@ -1,4 +1,4 @@
-use std::collections::{BTreeMap, HashMap};
+use std::collections::HashMap;
 
 use crate::sidecar::{NodeId, Sidecar};
 
@@ -16,14 +16,19 @@ impl SimWorld {
 
     pub fn add_node(&mut self, node: Sidecar) {
         self.nodes.insert(node.id.clone(), node);
+        self.size += 1;
     }
 
     pub fn delete_node(&mut self, node_id: NodeId) {
-        // Implement deletion logic
+        self.nodes.remove(&node_id);
+        self.size -= 1;
     }
 
     pub fn tick(&mut self) {
-        // Apply mutations and consume inboxes
+        // Tick all nodes
+        for (key, val) in &mut self.nodes {
+            val.tick();
+        }
         self.epoch += 1;
     }
 }
