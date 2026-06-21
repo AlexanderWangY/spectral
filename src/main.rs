@@ -1,6 +1,6 @@
-mod sidecar;
-mod sim_world;
+use spectral::config::load_config;
 
 fn main() {
-    println!("Welcome to spectral");
+    let config = load_config("config.toml").unwrap();
+    println!("{:?}", config);
 }
