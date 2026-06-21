@@ -1,6 +1,6 @@
-mod config;
-mod graph;
+use spectral::config::load_config;
 
 fn main() {
-    println!("Hello, spectral!");
+    let config = load_config("config.toml").unwrap();
+    println!("{:?}", config);
 }
