@@ -1,6 +1,10 @@
-use spectral::config::load_config;
+use spectral::{config::load_config, telemetry};
+use tracing::info;
 
-fn main() {
+fn main() -> anyhow::Result<()> {
+    telemetry::init()?;
     let config = load_config("config.toml").unwrap();
-    println!("{:?}", config);
+    info!("{:?}", config);
+
+    Ok(())
 }

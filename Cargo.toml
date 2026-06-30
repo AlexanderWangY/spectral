@@ -14,6 +14,8 @@ serde = { version = "1.0.228", features = ["derive"] }
 tokio = { version = "1.52.3", features = ["full"]}
 tokio-util = "0.7.18"
 toml = "1.1.2"
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
 turmoil = { version = "0.7.2", optional = true }
 
 [dev-dependencies]
